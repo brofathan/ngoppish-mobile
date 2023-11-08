@@ -8,7 +8,7 @@ class ShopCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.indigo,
+      color: item.color,
       child: InkWell(
         // Area responsive terhadap sentuhan
         onTap: () {
@@ -49,9 +49,9 @@ class MyHomePage extends StatelessWidget {
   MyHomePage({Key? key}) : super(key: key);
 
   final List<ShopItem> items = [
-    ShopItem("Lihat Produk", Icons.checklist),
-    ShopItem("Tambah Produk", Icons.add_shopping_cart),
-    ShopItem("Logout", Icons.logout),
+    ShopItem("Lihat Produk", Icons.checklist, Colors.purple),
+    ShopItem("Tambah Produk", Icons.add_shopping_cart, Colors.red),
+    ShopItem("Logout", Icons.logout, Colors.green),
   ];
 
   @override
@@ -60,7 +60,9 @@ class MyHomePage extends StatelessWidget {
           appBar: AppBar(
             title: const Text(
               'Shopping List',
+              style: TextStyle(color: Colors.white),
             ),
+            backgroundColor: Colors.indigo,
           ),
           body: SingleChildScrollView(
             // Widget wrapper yang dapat discroll
@@ -106,6 +108,7 @@ class MyHomePage extends StatelessWidget {
 class ShopItem {
   final String name;
   final IconData icon;
+  final Color color;
 
-  ShopItem(this.name, this.icon);
+  ShopItem(this.name, this.icon, this.color);
 }
