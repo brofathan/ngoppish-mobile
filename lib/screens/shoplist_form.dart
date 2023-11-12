@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ngoppish_mobile/widgets/left_drawer.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ShopFormPage extends StatefulWidget {
   const ShopFormPage({super.key});
@@ -114,8 +115,9 @@ class _ShopFormPageState extends State<ShopFormPage> {
                     style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(Colors.indigo),
                     ),
-                    onPressed: () {
+                    onPressed: () async {
                       if (_formKey.currentState!.validate()) {
+                        
                         showDialog(
                           context: context,
                           builder: (context) {
@@ -143,7 +145,17 @@ class _ShopFormPageState extends State<ShopFormPage> {
                             );
                           },
                         );
-                      _formKey.currentState!.reset();
+                        _formKey.currentState!.reset();
+
+                        SharedPreferences prefs = await SharedPreferences.getInstance(); 
+
+                        List<String>? list = prefs.getStringList("item_list1");
+
+                        if(list == null){
+                          prefs.setStringList("item_list1", ["$_name", "$_amount", "$_desc"]);
+                        }else{
+                          prefs.setStringList("item_list1", list + ["$_name", "$_amount", "$_desc"]);
+                        }
                       }
                     },
                     child: const Text(
@@ -152,7 +164,7 @@ class _ShopFormPageState extends State<ShopFormPage> {
                     ),
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),
