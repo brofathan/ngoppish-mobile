@@ -268,5 +268,8 @@ Widget MyApp ini memanggil MyHomePage() yang ada di file ```menu.dart``` agar My
 
 ## Bagaimana penerapan clean architecture pada aplikasi Flutter?
 
+Penerapan clean architecture adalah pada saat tiap-tiap widget class yang kita buat pada aplikasi flutter kita memiliki file terpisah. Dengan ini, kita dapat memiliki file yang khusus untuk menampilkan widget dan memiliki file yang khusus untuk membuat class widget tersebut.
+
 
 ## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial)
+
