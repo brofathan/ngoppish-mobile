@@ -13,9 +13,7 @@ class _ListOfItemsState extends State<ListOfItems> {
 
   List<String> itemList = [];
 
-  List<String> item2 = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
-
-  getData() async{
+  getItem() async{
     SharedPreferences prefs = await SharedPreferences.getInstance();
     List<String> list = prefs.getStringList("item_list1")!;
     return list;
@@ -25,7 +23,7 @@ class _ListOfItemsState extends State<ListOfItems> {
   void initState() {
     super.initState();
 
-    getData().then((value) {
+    getItem().then((value) {
       itemList = value!;
       setState(() {
         
