@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ngoppish_mobile/screens/item_list.dart';
+import 'package:ngoppish_mobile/screens/list_product.dart';
 import 'package:ngoppish_mobile/screens/shoplist_form.dart';
 
 class ShopCard extends StatelessWidget {
@@ -29,7 +30,7 @@ class ShopCard extends StatelessWidget {
           else if(item.name == "Lihat Produk"){
             Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const ListOfItems())
+                MaterialPageRoute(builder: (context) => const ProductPage())
               );
           }
         },
